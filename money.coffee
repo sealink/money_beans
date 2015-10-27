@@ -1,16 +1,29 @@
 class Money
   constructor: (num) ->
-    @cents = if typeof num == 'number'
-      num || 0
-    else
-      num = num.replace(/,/g,'').match(/[0-9]+.?[0-9]*/, '')[0] # remove everything (comma, $, etc.) except the number and decimal in between - decimal optional, no decimal = dollars
-      nums = num.split('.')
-      dollars = parseInt(nums[0])
-      cents = if nums[1]? then parseInt(nums[1]) else 0
-      dollars * 100 + cents
+    @cents = @getCents(num)
+
+  getCents: (num) ->
+    return 0 if num is null or num is 'undefined'
+    return num if typeof num is 'number'
+    return @buildFromString num if typeof num is 'string'
+    console.warn "Please use a number when creating a Money object not a #{typeof num}. Called from #{arguments.callee.caller.toString()} with ", num
+    0
+
+  buildFromString: (num) ->
+    # remove everything (comma, $, etc.) except the number and decimal in between
+    # - decimal optional, no decimal = dollars
+    num = num.replace(/,/g,'').match(/[0-9]+.?[0-9]*/, '')
+    return 0 unless num? # if num is other string
+    nums = num[0].split('.')
+    dollars = parseInt(nums[0])
+    cents = if nums[1]? then parseInt(nums[1]) else 0
+    dollars * 100 + cents
+
+  dollars: ->
+    @cents / 100.0
 
   format: ->
-    (@cents/100.0).toFixed(2)
+    @dollars().toFixed(2)
 
   signClass: ->
     if @sign() == 1 then 'positive' else if @sign() == -1 then 'negative' else 'zero'
@@ -19,7 +32,7 @@ class Money
     @cents && (@cents / Math.abs(@cents))
 
   absoluteFormat: ->
-    Math.abs(@cents/100.0).toFixed(2)
+    Math.abs(@dollars()).toFixed(2)
 
   isZero: ->
     @cents == 0
@@ -29,6 +42,9 @@ class Money
 
   isNegative: ->
     @cents < 0
+
+  equals: (other) ->
+    @cents == other.cents
 
   currencySymbol: ->
     '$' #TODO: implement proper currency
