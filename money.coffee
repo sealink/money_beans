@@ -3,7 +3,6 @@ class Money
     @cents = @getCents(num)
 
   getCents: (num) ->
-    return 0 if num is null or num is 'undefined'
     return num if typeof num is 'number'
     return @buildFromString num if typeof num is 'string'
     console.warn "Please use a number when creating a Money object not a #{typeof num}. Called from #{arguments.callee.caller.toString()} with ", num
