@@ -1,0 +1,29 @@
+/db_pages
+# Tmp files to always-ignore extensions
+*.diff
+*.err
+*.rej
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+/.redcar
+/nbproject
+/.project
+/.idea
+/.eclipse
+*.vi
+
+# Packages
+node_modules

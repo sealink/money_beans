@@ -1,0 +1,33 @@
+{
+  "name": "money_beans",
+  "version": "1.0.0",
+  "description": "Create JS money objects from strings, integers or floats",
+  "main": "./dist/money.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "coffee --compile --bare --output dist/ src/",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sealink/money_beans.git"
+  },
+  "keywords": [
+    "money",
+    "cents",
+    "currentcy",
+    "dollars",
+    "add",
+    "subtract",
+    "multiply"
+  ],
+  "author": "Jack McNicol <jack.mcnicol@sealink.com.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sealink/money_beans/issues"
+  },
+  "homepage": "https://github.com/sealink/money_beans#readme",
+  "devDependencies": {
+    "coffee-script": "^1.10.0"
+  }
+}
