@@ -1,6 +1,6 @@
 {
   "name": "money_beans",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create JS money objects from strings, integers or floats",
   "main": "./dist/money.js",
   "scripts": {

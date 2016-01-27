@@ -107,7 +107,9 @@
     };
 
     Money.prototype.multiply = function(num) {
-      return new Money(Math.round(this.cents * num));
+      var absoluteResult;
+      absoluteResult = Math.abs(this.cents) * num;
+      return new Money(Math.round(absoluteResult) * this.sign());
     };
 
     Money.prototype.render = function() {
