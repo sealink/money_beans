@@ -28,6 +28,12 @@
   },
   "homepage": "https://github.com/sealink/money_beans#readme",
   "devDependencies": {
-    "coffee-script": "^1.10.0"
+    "coffee-script": "^1.10.0",
+    "karma": "^0.13.19",
+    "karma-coffee-preprocessor": "^0.3.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "jasmine-core": "^2.4.1",
+    "phantomjs": "^2.1.2"
   }
 }
