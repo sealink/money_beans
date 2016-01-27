@@ -72,7 +72,8 @@
       new Money(@cents - other.cents)
 
     multiply: (num) ->
-      new Money(Math.round(@cents * num))
+      absoluteResult = Math.abs(@cents) * num
+      new Money Math.round(absoluteResult) * @sign()
 
     render: ->
       "<span class=\"money #{@signClass()}\">#{@currencyFormat()}</span>"
