@@ -4,7 +4,7 @@
   "description": "Create JS money objects from strings, integers or floats",
   "main": "./dist/money.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start --single-run",
     "build": "coffee --compile --bare --output dist/ src/",
     "prepublish": "npm run build"
   },
