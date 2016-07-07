@@ -31,6 +31,11 @@ describe 'Money', ->
       money = new Money(array)
       expect(money.cents).toEqual 0
 
+    it 'returns correct NaN value', ->
+      aNaNValue = 10/'a'
+      money = new Money(aNaNValue)
+      expect(money.cents).toEqual 0
+
 
   describe 'when calcalating multiplications', ->
     operand = .015

@@ -13,8 +13,7 @@
       @cents = @getCents(num)
 
     getCents: (num) ->
-      return 0 if num is NaN
-      return num if typeof num is 'number'
+      return num if typeof num is 'number' and !isNaN(num)
       return @buildFromString num if typeof num is 'string'
       return num.cents if num.cents?
       console.warn """
