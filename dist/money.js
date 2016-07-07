@@ -15,16 +15,16 @@
     }
 
     Money.prototype.getCents = function(num) {
-      if (num === NaN) {
-        return 0;
-      }
-      if (typeof num === 'number') {
+      if (typeof num === 'number' && !isNaN(num)) {
         return num;
       }
       if (typeof num === 'string') {
         return this.buildFromString(num);
       }
-      console.warn("Please use a number when creating a Money object not a " + (typeof num) + ". Called from " + (arguments.callee.caller.toString()) + " with ", num);
+      if (num.cents != null) {
+        return num.cents;
+      }
+      console.warn("Use a number or Object{cents: value} when creating a Money object\nCalled from " + (arguments.callee.caller.toString()) + " with ", num);
       return 0;
     };
 
