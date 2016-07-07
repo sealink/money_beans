@@ -2,6 +2,8 @@
 
 Create JS money objects from strings, integers or floats
 
+[![Build Status](https://travis-ci.org/sealink/money_beans.svg?branch=master)](https://travis-ci.org/sealink/money_beans)
+
 ## Get started
 
 ```coffee
