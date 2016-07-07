@@ -16,6 +16,7 @@
       return 0 if num is NaN
       return num if typeof num is 'number'
       return @buildFromString num if typeof num is 'string'
+      return num.cents if num.cents?
       console.warn "Please use a number when creating a Money object not a #{typeof num}. Called from #{arguments.callee.caller.toString()} with ", num
       0
 
