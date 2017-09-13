@@ -1,6 +1,6 @@
 {
-  "name": "money_beans",
-  "version": "1.0.3",
+  "name": "@sealink/money_beans",
+  "version": "1.1.0",
   "description": "Create JS money objects from strings, integers or floats",
   "main": "./dist/money.js",
   "scripts": {
