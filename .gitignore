@@ -27,3 +27,5 @@ Thumbs.db
 
 # Packages
 node_modules
+
+dist
