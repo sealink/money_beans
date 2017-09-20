@@ -1,11 +1,11 @@
 {
-  "name": "money_beans",
-  "version": "1.0.3",
+  "name": "@sealink/money_beans",
+  "version": "1.1.0",
   "description": "Create JS money objects from strings, integers or floats",
   "main": "./dist/money.js",
   "scripts": {
-    "test": "karma start --single-run",
-    "build": "coffee --compile --bare --output dist/ src/",
+    "test": "mocha --compilers js:babel-core/register",
+    "build": "babel src --out-dir dist",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -15,7 +15,7 @@
   "keywords": [
     "money",
     "cents",
-    "currentcy",
+    "currency",
     "dollars",
     "add",
     "subtract",
@@ -28,12 +28,10 @@
   },
   "homepage": "https://github.com/sealink/money_beans#readme",
   "devDependencies": {
-    "coffee-script": "^1.10.0",
-    "karma": "^1.1.0",
-    "karma-coffee-preprocessor": "^1.0.0",
-    "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.1",
-    "jasmine-core": "^2.4.1",
-    "phantomjs-prebuilt": "^2.1.7"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.5.3"
   }
 }
