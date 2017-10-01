@@ -1,24 +1,28 @@
-class Money {
+export default class Money {
   constructor(num) {
-    this.cents = this.getCents(num);
+    this.cents = Money.getCents(num);
   }
 
-  getCents(num) {
-    if ( typeof num === 'number' && !isNaN(num) ) return num;
-    if ( typeof num === 'string' ) return this.buildFromString(num);
-    if ( num.cents != null ) return num.cents;
+  static getCents(num) {
+    if (typeof num === 'number' && !Number.isNaN(num)) return num;
+    if (typeof num === 'string') return Money.buildFromString(num);
+    if (num.cents != null) return num.cents;
     return 0;
   }
 
-  buildFromString(stringNumber) {
+  static buildFromString(stringNumber) {
     // remove everything (comma, $, etc.) except the number and decimal in between
     // - decimal optional, no decimal = dollars
-    const number = stringNumber.replace(/,/g,'').match(/[0-9]+.?[0-9]*/, '')
-    if (number == null) return 0;  // if num is other string
+    const number = stringNumber.replace(/,/g, '').match(/[0-9]+.?[0-9]*/, '');
+    if (number == null) return 0; // if num is other string
     const numbers = number[0].split('.');
-    const dollars = parseInt(numbers[0]);
-    const cents   = numbers[1] != null ? parseInt(numbers[1]): 0;
-    return dollars * 100 + cents;
+    const dollars = parseInt(numbers[0], 0);
+    const cents = numbers[1] != null ? parseInt(numbers[1], 0) : 0;
+    return (dollars * 100) + cents;
+  }
+
+  static currencySymbol() {
+    return '$'; // TODO: implement proper currency;
   }
 
   dollars() {
@@ -59,17 +63,13 @@ class Money {
     return this.cents === other.cents;
   }
 
-  currencySymbol() {
-    return '$'; // TODO: implement proper currency;
-  }
-
   signSymbol() {
-    if ( this.sign() == -1 ) return '-';
+    if (this.sign() === -1) return '-';
     return '';
   }
 
   currencyFormat() {
-    return this.signSymbol() + this.currencySymbol() +  this.absoluteFormat();
+    return this.signSymbol() + Money.currencySymbol() + this.absoluteFormat();
   }
 
   add(other) {
@@ -82,7 +82,7 @@ class Money {
 
   multiply(num) {
     const absoluteResult = Math.abs(this.cents) * num;
-    return new Money( Math.round(absoluteResult) * this.sign() );
+    return new Money(Math.round(absoluteResult) * this.sign());
   }
 
   render() {
@@ -93,5 +93,3 @@ class Money {
     return this.format();
   }
 }
-
-export default Money
