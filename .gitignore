@@ -28,4 +28,6 @@ Thumbs.db
 # Packages
 node_modules
 
-dist
+/dist
+/coverage
+/yarn-error.log
