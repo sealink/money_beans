@@ -6,13 +6,16 @@ let pkg = require('./package.json')
 
 let plugins = [
   eslint(),
-  istanbul({
-    exclude: ['test/**/*.js']
-  }),
   babel({
     exclude: 'node_modules/**',
   }),
 ];
+
+if (process.env.BUILD !== 'production') {
+  plugins.push(istanbul({
+    exclude: ['test/**/*', 'node_modules/**/*']
+  }));
+}
 
 export default {
   input: 'src/money.js',
@@ -22,10 +25,12 @@ export default {
       file: pkg.main,
       format: 'umd',
       name: 'money_beans',
+      sourceMap: true,
     },
     {
       file: pkg.module,
       format: 'es',
+      sourceMap: true,
     }
   ]
 };

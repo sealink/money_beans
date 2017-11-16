@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).  
 
 ## Unreleased
+- Remove coverage from dist js files
 - Update build to use rollup-js
 
 ## 1.1.0
