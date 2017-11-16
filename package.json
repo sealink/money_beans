@@ -10,7 +10,7 @@
     "watch": "rollup -c -w",
     "pretest": "rollup -c",
     "test": "mocha",
-    "prepublish": "npm test"
+    "prepublish": "BUILD=production npm test"
   },
   "repository": {
     "type": "git",
