@@ -6,7 +6,7 @@
   "module": "./dist/money.esm.js",
   "scripts": {
     "prebuild": "eslint src",
-    "build": "rollup -c",
+    "build": "rollup -c --environment BUILD:production",
     "watch": "rollup -c -w",
     "pretest": "rollup -c",
     "test": "mocha",
