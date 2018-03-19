@@ -140,54 +140,108 @@ describe('Money', function() {
   })
 
   describe('rounding', function() {
-    it('rounds down', function() {
-      const money = new Money(121)
-      expect(money.round().cents).to.be(120);
-    });
+    describe('positive numbers', function() {
+      it('rounds down', function() {
+        const money = new Money(121)
+        expect(money.round().cents).to.be(120);
+      });
 
-    it('rounds down', function() {
-      const money = new Money(122)
-      expect(money.round().cents).to.be(120);
-    });
+      it('rounds down', function() {
+        const money = new Money(122)
+        expect(money.round().cents).to.be(120);
+      });
 
-    it('rounds up', function() {
-      const money = new Money(123)
-      expect(money.round().cents).to.be(125);
-    });
+      it('rounds up', function() {
+        const money = new Money(123)
+        expect(money.round().cents).to.be(125);
+      });
 
-    it('rounds up', function() {
-      const money = new Money(124)
-      expect(money.round().cents).to.be(125);
-    });
+      it('rounds up', function() {
+        const money = new Money(124)
+        expect(money.round().cents).to.be(125);
+      });
 
-    it('stays the same', function() {
-      const money = new Money(125)
-      expect(money.round().cents).to.be(125);
-    });
+      it('stays the same', function() {
+        const money = new Money(125)
+        expect(money.round().cents).to.be(125);
+      });
 
-    it('rounds down', function() {
-      const money = new Money(126)
-      expect(money.round().cents).to.be(125);
-    });
+      it('rounds down', function() {
+        const money = new Money(126)
+        expect(money.round().cents).to.be(125);
+      });
 
-    it('rounds down', function() {
-      const money = new Money(127)
-      expect(money.round().cents).to.be(125);
-    });
+      it('rounds down', function() {
+        const money = new Money(127)
+        expect(money.round().cents).to.be(125);
+      });
 
-    it('rounds up', function() {
-      const money = new Money(128)
-      expect(money.round().cents).to.be(130);
-    });
+      it('rounds up', function() {
+        const money = new Money(128)
+        expect(money.round().cents).to.be(130);
+      });
 
-    it('rounds up', function() {
-      const money = new Money(129)
-      expect(money.round().cents).to.be(130);
-    });
+      it('rounds up', function() {
+        const money = new Money(129)
+        expect(money.round().cents).to.be(130);
+      });
 
-    it('stays the same', function() {
-      const money = new Money(130)
-      expect(money.round().cents).to.be(130);
-    });
+      it('stays the same', function() {
+        const money = new Money(130)
+        expect(money.round().cents).to.be(130);
+      });
+    })
+
+    describe('negative numbers', function() {
+      it('rounds up', function() {
+        const money = new Money(-121)
+        expect(money.round().cents).to.be(-120);
+      });
+
+      it('rounds up', function() {
+        const money = new Money(-122)
+        expect(money.round().cents).to.be(-120);
+      });
+
+      it('rounds down', function() {
+        const money = new Money(-123)
+        expect(money.round().cents).to.be(-125);
+      });
+
+      it('rounds down', function() {
+        const money = new Money(-124)
+        expect(money.round().cents).to.be(-125);
+      });
+
+      it('stays the same', function() {
+        const money = new Money(-125)
+        expect(money.round().cents).to.be(-125);
+      });
+
+      it('rounds up', function() {
+        const money = new Money(-126)
+        expect(money.round().cents).to.be(-125);
+      });
+
+      it('rounds up', function() {
+        const money = new Money(-127)
+        expect(money.round().cents).to.be(-125);
+      });
+
+      it('rounds down', function() {
+        const money = new Money(-128)
+        expect(money.round().cents).to.be(-130);
+      });
+
+      it('rounds down', function() {
+        const money = new Money(-129)
+        expect(money.round().cents).to.be(-130);
+      });
+
+      it('stays the same', function() {
+        const money = new Money(-130)
+        expect(money.round().cents).to.be(-130);
+      });
+    })
   })
 });

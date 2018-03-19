@@ -96,7 +96,8 @@ export default class Money {
   round() {
     const modulo = this.cents % 5;
 
-    if (modulo <= 2) return new Money(this.cents - modulo);
+    if (Math.abs(modulo) <= 2) return new Money(this.cents - modulo);
+    if (modulo < 0) return new Money(this.cents - (5 + modulo));
     return new Money(this.cents + (5 - modulo));
   }
 }
