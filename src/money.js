@@ -92,4 +92,11 @@ export default class Money {
   toString() {
     return this.format();
   }
+
+  round() {
+    const modulo = this.cents % 5;
+
+    if (modulo <= 2) return new Money(this.cents - modulo);
+    return new Money(this.cents + (5 - modulo));
+  }
 }
