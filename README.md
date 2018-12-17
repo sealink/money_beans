@@ -59,3 +59,22 @@ finalTotal = total.subtract(discount)
 # returns => Object {cents: 15985}
 
 ```
+
+### Deployment
+
+Build / Deployment is handled via travis CI.
+Package management is via NPM.
+
+First create the release branch
+```
+git branch release/0.3.0
+```
+
+Second Update package.json and specify the version you are releasing
+
+Next Tag and push to travis
+```
+git tag v0.3.0
+git push origin master --tags
+```
+Remember to merge changes back to the master branch

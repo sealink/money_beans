@@ -1,7 +1,20 @@
 language: node_js
 node_js:
-  - '8'
-  - '7'
-  - '6'
-  - '5'
-  - '4'
+- '6'
+- '8'
+- '10'
+jobs:
+  include:
+  - stage: npm release
+    node_js: 8
+    script: echo "Deploying to npm ..."
+    deploy:
+      provider: npm
+      email: support@travellink.com.au
+      skip_cleanup: true
+      node: '8.0'
+      api_key:
+        secure: FTVCjT1M9LMDWhCiTB+x4jSTH56HdurMXzvSijFMmeyCMxggBuXqjM6NxZMMtSxorypb2p2eDgi409/c2wWlGaJ2fgfSeyPQ43L4+dLCrG0Z6YutF7gkeubGFovUlCvjvO7Grd/YwXrvU7OeVuwGwpxCKYRabOJFld3sQ8wSG54=
+      on:
+        all_branches: true
+        tags: true

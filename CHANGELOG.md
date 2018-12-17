@@ -5,6 +5,7 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
 - Add a rounding method
+- [TT-4930] Update travis config to allow deployment
 
 ## 1.1.2
 - Use production build for publish
