@@ -41,7 +41,7 @@
     "eslint-plugin-import": "^2.7.0",
     "expect.js": "^0.3.1",
     "mocha": "^3.5.3",
-    "rollup": "^0.50.0",
+    "rollup": "^1.13.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-eslint": "^4.0.0",
     "rollup-plugin-istanbul": "^1.1.0"
