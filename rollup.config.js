@@ -1,5 +1,5 @@
 import babel from "rollup-plugin-babel";
-import eslint from "rollup-plugin-eslint";
+import { eslint } from "rollup-plugin-eslint";
 import istanbul from "rollup-plugin-istanbul";
 
 let pkg = require("./package.json");
