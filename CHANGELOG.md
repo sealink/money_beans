@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).  
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).  
 
+## Unreleased
+
+- [TT-5649] Update Mocha / EsLint and Rollup plugins
+
 ## 1.2.0
 - Add a rounding method
 - [TT-4930] Update travis config to allow deployment
