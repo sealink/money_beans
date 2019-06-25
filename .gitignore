@@ -24,6 +24,7 @@ Thumbs.db
 /.idea
 /.eclipse
 *.vi
+/.nyc_output
 
 # Packages
 node_modules

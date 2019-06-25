@@ -1,1 +1,1 @@
-require('./money_test');
+require("./money_test");
