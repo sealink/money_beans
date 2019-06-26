@@ -46,5 +46,8 @@
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-eslint": "^6.0.0",
     "rollup-plugin-istanbul": "^2.0.1"
+  },
+  "engines": {
+    "node": "^8.10.0 || ^10.13.0 || >=11.10.1"
   }
 }
