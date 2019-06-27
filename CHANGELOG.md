@@ -6,6 +6,7 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 ## Unreleased
 
 - [TT-5649] Update Mocha / EsLint and Rollup plugins
+- [TT-5650] Remove Node6 support
 
 ## 1.2.0
 - Add a rounding method
