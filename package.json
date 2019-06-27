@@ -44,7 +44,7 @@
     "nyc": "^14.1.1",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-eslint": "^6.0.0",
+    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-istanbul": "^2.0.1"
   },
   "engines": {
