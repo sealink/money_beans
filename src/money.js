@@ -21,6 +21,10 @@ export default class Money {
     return dollars * 100 + cents;
   }
 
+  static format(amount) {
+    return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+  }
+
   static currencySymbol() {
     return "$"; // TODO: implement proper currency;
   }
@@ -30,7 +34,7 @@ export default class Money {
   }
 
   format() {
-    return this.dollars().toFixed(2);
+    return Money.format(this.dollars());
   }
 
   signClass() {
@@ -44,7 +48,7 @@ export default class Money {
   }
 
   absoluteFormat() {
-    return Math.abs(this.dollars()).toFixed(2);
+    return Money.format(Math.abs(this.dollars()));
   }
 
   isZero() {
