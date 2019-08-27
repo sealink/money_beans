@@ -136,9 +136,26 @@ describe("Money", function() {
       expect(money.render()).to.be('<span class="money zero">$0.00</span>');
     });
 
+    it("formats to html with thousand serperator", function() {
+      const money = new Money(100000);
+      expect(money.render()).to.be(
+        '<span class="money positive">$1,000.00</span>'
+      );
+    });
+
     it("converts to string", function() {
       const money = new Money(3000);
       expect(money.toString()).to.be("30.00");
+    });
+
+    it("has thousand seperators", function() {
+      const money = new Money(884936);
+      expect(money.toString()).to.be("8,849.36");
+    });
+
+    it("has thousand seperators for negative numbers", function() {
+      const money = new Money(-884936);
+      expect(money.toString()).to.be("-8,849.36");
     });
   });
 
