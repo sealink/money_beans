@@ -43,7 +43,7 @@
     "mocha": "^7.0.0",
     "nyc": "^15.0.0",
     "rollup": "^1.16.2",
-    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-istanbul": "^2.0.1"
   },
