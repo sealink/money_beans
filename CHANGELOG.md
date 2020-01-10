@@ -8,6 +8,7 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 - [TT-5649] Update Mocha / EsLint and Rollup plugins
 - [TT-5650] Remove Node6 support
 - [TT-5860] Format now includes thousand's seperator
+- [TT-6689] Update to Babel 7
 
 ## 1.2.0
 - Add a rounding method
