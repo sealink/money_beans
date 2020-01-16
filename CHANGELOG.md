@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).  
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).  
 
-## Unreleased
+## 1.3.0
 
 - [TT-5649] Update Mocha / EsLint and Rollup plugins
 - [TT-5650] Remove Node6 support
