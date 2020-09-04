@@ -17,9 +17,10 @@ export default class Money {
     if (number == null) return 0; // if num is other string
     const numbers = number[0].split(".");
     const dollars = parseInt(numbers[0], 10) || 0;
-    var centString = numbers[1];
+    var centString = numbers[1]?.substring(0, 2);
     // padding centString if it's only a single digit
     // so that .2 is counted as 20 cents instead of 2
+    // Also truncates anything past 2 decimal places (no rounding, only truncating)
     if (centString?.length == 1) {
       centString = `${centString}0`;
     }

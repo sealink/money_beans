@@ -33,6 +33,12 @@ describe("Money", function() {
       expect(money.cents).to.be(120);
     })
 
+    it("returns correct money string value", function() {
+      const moneyString = "1.200";
+      const money = new Money(moneyString);
+      expect(money.cents).to.be(120);
+    })
+
     it("returns correct money from invalid string value", function() {
       const money = new Money("abc");
       expect(money.cents).to.be(0);
