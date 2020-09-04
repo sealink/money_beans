@@ -13,11 +13,17 @@ export default class Money {
   static buildFromString(stringNumber) {
     // remove everything (comma, $, etc.) except the number and decimal in between
     // - decimal optional, no decimal = dollars
-    const number = stringNumber.replace(/,/g, "").match(/[0-9]+.?[0-9]*/, "");
+    const number = stringNumber.replace(/,/g, "").match(/[0-9]*\.?[0-9]*$/, "");
     if (number == null) return 0; // if num is other string
     const numbers = number[0].split(".");
-    const dollars = parseInt(numbers[0], 0);
-    const cents = numbers[1] != null ? parseInt(numbers[1], 0) : 0;
+    const dollars = parseInt(numbers[0], 10) || 0;
+    var centString = numbers[1];
+    // padding centString if it's only a single digit
+    // so that .2 is counted as 20 cents instead of 2
+    if (centString?.length == 1) {
+      centString = `${centString}0`;
+    }
+    const cents = centString != null ? parseInt(centString, 10) : 0;
     return dollars * 100 + cents;
   }
 
