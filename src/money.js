@@ -13,8 +13,7 @@ export default class Money {
   }
 
   static buildFromString(stringNumber) {
-    const currencyValue = currency(stringNumber)
-    return currencyValue.dollars() * 100 + currencyValue.cents();
+    return currency(stringNumber).value * 100;
   }
 
   static format(amount) {
