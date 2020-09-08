@@ -1,3 +1,5 @@
+import currency from "currency.js";
+
 export default class Money {
   constructor(num) {
     this.cents = Money.getCents(num);
@@ -11,14 +13,7 @@ export default class Money {
   }
 
   static buildFromString(stringNumber) {
-    // remove everything (comma, $, etc.) except the number and decimal in between
-    // - decimal optional, no decimal = dollars
-    const number = stringNumber.replace(/,/g, "").match(/[0-9]+.?[0-9]*/, "");
-    if (number == null) return 0; // if num is other string
-    const numbers = number[0].split(".");
-    const dollars = parseInt(numbers[0], 0);
-    const cents = numbers[1] != null ? parseInt(numbers[1], 0) : 0;
-    return dollars * 100 + cents;
+    return currency(stringNumber).value * 100;
   }
 
   static format(amount) {
