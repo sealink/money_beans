@@ -22,6 +22,12 @@ describe("Money", function() {
     });
 
     it("returns correct money string value", function() {
+      const moneyString = "10.2";
+      const money = new Money(moneyString);
+      expect(money.cents).to.be(1020);
+    });
+
+    it("returns correct money string value", function() {
       const moneyString = ".2";
       const money = new Money(moneyString);
       expect(money.cents).to.be(20);
