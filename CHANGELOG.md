@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
+## 1.4.1 Unreleased
+
+- [TT-7968] Using currency.js intValue for greater accuracy
+
 ## 1.4.0
 
 - [TT-7922] Fixed some edge cases when initialising from string values

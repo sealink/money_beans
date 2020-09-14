@@ -13,7 +13,7 @@ export default class Money {
   }
 
   static buildFromString(stringNumber) {
-    return currency(stringNumber).value * 100;
+    return currency(stringNumber).intValue;
   }
 
   static format(amount) {
