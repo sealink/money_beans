@@ -92,6 +92,10 @@ export default class Money {
     return this.format();
   }
 
+  valueOf() {
+    return this.dollars().toFixed(2);
+  }
+
   round() {
     const modulo = this.cents % 5;
 

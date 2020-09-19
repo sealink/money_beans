@@ -183,6 +183,39 @@ describe("Money", function() {
     });
   });
 
+  describe("coercion", function() {
+    // Large is determined by when the "," seperator gets applied which is currently at 1000
+    it("has correct primitive value for large positive fractionals", function() {
+      const money = new Money("$1000.50");
+      expect(Math.abs(money)).to.be(1000.50);
+    });
+
+    it("has correct primitive value for large negative fractionals", function() {
+      const money = new Money("$-1000.50");
+      expect(Math.abs(money)).to.be(1000.50);
+    });
+
+    it("has correct primitive value for large whole numbers", function() {
+      const money = new Money("$1000");
+      expect(Math.abs(money)).to.be(1000);
+    });
+
+    it("has correct primitive value for large negative whole numbers", function() {
+      const money = new Money("$-1000");
+      expect(Math.abs(money)).to.be(1000);
+    });
+
+    it("has correct primitive value for small whole numbers", function() {
+      const money = new Money("$1");
+      expect(Math.abs(money)).to.be(1);
+    });
+
+    it("has correct primitive value for small fractional numbers", function() {
+      const money = new Money("$1.5");
+      expect(Math.abs(money)).to.be(1.50);
+    });
+  });
+
   describe("rounding", function() {
     describe("positive numbers", function() {
       it("rounds down", function() {
