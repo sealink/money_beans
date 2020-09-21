@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
+## Unreleased
+
+- [TT-8027] Remove "," format in thousands due to problems when parsing in rails forms
+
 ## 1.5.0
 
 - [TT-8018] Add valueOf method for backwards compatibility with v1.2.0
