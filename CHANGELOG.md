@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## Unreleased
+## 1.5.1
 
 - [TT-8027] Remove "," format in thousands due to problems when parsing in rails forms
 
