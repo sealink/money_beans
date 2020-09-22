@@ -17,7 +17,7 @@ export default class Money {
   }
 
   static format(amount) {
-    return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    return amount.toFixed(2)
   }
 
   static currencySymbol() {
