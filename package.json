@@ -38,7 +38,7 @@
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "eslint": "^7.2.0",
-    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-import": "^2.18.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
