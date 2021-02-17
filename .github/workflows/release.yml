@@ -1,0 +1,54 @@
+name: Release
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - run: npm ci
+      - run: npm run test
+
+  release:
+    needs: build
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Generate Changelog
+        run: |
+          # Get version from github ref (remove 'refs/tags/' and prefix 'v')
+          version="${GITHUB_REF#refs/tags/v}"
+          npx changelog-parser CHANGELOG.md | jq -cr ".versions | .[] | select(.version == \"$version\") | .body" > ${{ github.workflow }}-CHANGELOG.txt
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: ${{ github.workflow }}-CHANGELOG.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: [build, release]
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
