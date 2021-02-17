@@ -10,6 +10,7 @@
     "watch": "rollup -c -w",
     "pretest": "rollup -c",
     "test": "nyc mocha",
+    "coverage": "nyc report --reporter=lcov",
     "prepublish": "BUILD=production npm test"
   },
   "repository": {
@@ -49,6 +50,6 @@
     "rollup-plugin-istanbul": "^3.0.0"
   },
   "engines": {
-    "node": "^10 || ^12"
+    "node": "^10 || ^12 || ^14"
   }
 }

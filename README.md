@@ -2,7 +2,7 @@
 
 Create JS money objects from strings, integers or floats
 
-[![Build Status](https://travis-ci.org/sealink/money_beans.svg?branch=master)](https://travis-ci.org/sealink/money_beans)
+[![Build Status](https://github.com/sealink/money_beans/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/sealink/money_beans/actions)
 
 ## Get started
 
@@ -73,7 +73,7 @@ git branch release/0.3.0
 
 Second Update package.json and specify the version you are releasing
 
-Next Tag and push to travis
+Next Tag and push to github
 
 ```
 git tag v0.3.0
