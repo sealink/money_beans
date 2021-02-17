@@ -10,6 +10,7 @@
     "watch": "rollup -c -w",
     "pretest": "rollup -c",
     "test": "nyc mocha",
+    "coverage": "nyc report --reporter=lcov",
     "prepublish": "BUILD=production npm test"
   },
   "repository": {
