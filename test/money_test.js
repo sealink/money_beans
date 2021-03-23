@@ -1,323 +1,319 @@
-const expect = require("expect.js");
 const Money = require("../dist/money");
 
-describe("Money", function() {
-  describe("when constructing money", function() {
-    it("returns correct integer value", function() {
+describe("Money", () => {
+  describe("when constructing money", () => {
+    it("returns correct integer value", () => {
       const num = 1200;
       const money = new Money(num);
-      expect(money.cents).to.be(1200);
+      expect(money.cents).toBe(1200);
     });
 
-    it("returns correct string value", function() {
+    it("returns correct string value", () => {
       const string = "22";
       const money = new Money(string);
-      expect(money.cents).to.be(2200);
+      expect(money.cents).toBe(2200);
     });
 
-    it("returns correct money string value", function() {
+    it("returns correct money string value", () => {
       const moneyString = "$1.00";
       const money = new Money(moneyString);
-      expect(money.cents).to.be(100);
+      expect(money.cents).toBe(100);
     });
 
-    it("returns correct money string value", function() {
+    it("returns correct money string value", () => {
       const moneyString = "10.2";
       const money = new Money(moneyString);
-      expect(money.cents).to.be(1020);
+      expect(money.cents).toBe(1020);
     });
 
-    it("returns correct money string value", function() {
+    it("returns correct money string value", () => {
       const moneyString = ".2";
       const money = new Money(moneyString);
-      expect(money.cents).to.be(20);
+      expect(money.cents).toBe(20);
     })
 
-    it("returns correct money string value", function() {
+    it("returns correct money string value", () => {
       const moneyString = "1.2";
       const money = new Money(moneyString);
-      expect(money.cents).to.be(120);
+      expect(money.cents).toBe(120);
     })
 
-    it("returns correct money string value", function() {
+    it("returns correct money string value", () => {
       const moneyString = "1.200";
       const money = new Money(moneyString);
-      expect(money.cents).to.be(120);
+      expect(money.cents).toBe(120);
     })
 
-    it("returns correct money from invalid string value", function() {
+    it("returns correct money from invalid string value", () => {
       const money = new Money("abc");
-      expect(money.cents).to.be(0);
+      expect(money.cents).toBe(0);
     });
 
-    it("returns correct money object value", function() {
+    it("returns correct money object value", () => {
       const num = {
         cents: 1000
       };
       const money = new Money(num);
-      expect(money.cents).to.be(1000);
+      expect(money.cents).toBe(1000);
     });
 
-    it("returns correct object value", function() {
+    it("returns correct object value", () => {
       const object = {
         key: 1000
       };
       const money = new Money(object);
-      expect(money.cents).to.be(0);
+      expect(money.cents).toBe(0);
     });
 
-    it("returns correct array value", function() {
+    it("returns correct array value", () => {
       const array = [10];
       const money = new Money(array);
-      expect(money.cents).to.be(0);
+      expect(money.cents).toBe(0);
     });
 
-    it("returns correct NaN value", function() {
+    it("returns correct NaN value", () => {
       const aNaNValue = 10 / "a";
       const money = new Money(aNaNValue);
-      expect(money.cents).to.be(0);
+      expect(money.cents).toBe(0);
     });
   });
 
-  describe("when calcalating multiplications", function() {
+  describe("when calcalating multiplications", () => {
     const operand = 0.015;
-    it("rounds the positive amount conventionally", function() {
+    it("rounds the positive amount conventionally", () => {
       const money = new Money(3900);
-      expect(money.multiply(operand).cents).to.be(59);
+      expect(money.multiply(operand).cents).toBe(59);
     });
 
-    it("rounds the negative amount symmetrically", function() {
+    it("rounds the negative amount symmetrically", () => {
       const money = new Money(-3900);
-      expect(money.multiply(operand).cents).to.be(-59);
+      expect(money.multiply(operand).cents).toBe(-59);
     });
   });
 
-  describe("comparison", function() {
-    it("Should not equal an object with different cents", function() {
+  describe("comparison", () => {
+    it("Should not equal an object with different cents", () => {
       const money = new Money(3000);
-      expect(money.equals(new Money(20))).to.be(false);
+      expect(money.equals(new Money(20))).toBe(false);
     });
 
-    it("Should equal an object with same cents value", function() {
+    it("Should equal an object with same cents value", () => {
       const money = new Money(3000);
-      expect(money.equals(new Money(3000))).to.be(true);
+      expect(money.equals(new Money(3000))).toBe(true);
     });
   });
 
-  describe("add", function() {
-    it("should add money values", function() {
-      expect(new Money(3000).add(new Money(3000)).cents).to.be(6000);
+  describe("add", () => {
+    it("should add money values", () => {
+      expect(new Money(3000).add(new Money(3000)).cents).toBe(6000);
     });
   });
 
-  describe("subtract", function() {
-    it("should subtract money values", function() {
-      expect(new Money(3000).subtract(new Money(3000)).cents).to.be(0);
+  describe("subtract", () => {
+    it("should subtract money values", () => {
+      expect(new Money(3000).subtract(new Money(3000)).cents).toBe(0);
     });
   });
 
-  describe("isNegative", function() {
-    it("should detect negative values", function() {
-      expect(new Money(3000).isNegative()).to.be(false);
-      expect(new Money(0).isNegative()).to.be(false);
-      expect(new Money(-3000).isNegative()).to.be(true);
+  describe("isNegative", () => {
+    it("should detect negative values", () => {
+      expect(new Money(3000).isNegative()).toBe(false);
+      expect(new Money(0).isNegative()).toBe(false);
+      expect(new Money(-3000).isNegative()).toBe(true);
     });
   });
 
-  describe("isPositive", function() {
-    it("should detect positive values", function() {
-      expect(new Money(3000).isPositive()).to.be(true);
-      expect(new Money(0).isPositive()).to.be(false);
-      expect(new Money(-3000).isPositive()).to.be(false);
+  describe("isPositive", () => {
+    it("should detect positive values", () => {
+      expect(new Money(3000).isPositive()).toBe(true);
+      expect(new Money(0).isPositive()).toBe(false);
+      expect(new Money(-3000).isPositive()).toBe(false);
     });
   });
 
-  describe("isZero", function() {
-    it("should detect zero values", function() {
-      expect(new Money(3000).isZero()).to.be(false);
-      expect(new Money(0).isZero()).to.be(true);
-      expect(new Money(-3000).isZero()).to.be(false);
+  describe("isZero", () => {
+    it("should detect zero values", () => {
+      expect(new Money(3000).isZero()).toBe(false);
+      expect(new Money(0).isZero()).toBe(true);
+      expect(new Money(-3000).isZero()).toBe(false);
     });
   });
 
-  describe("formatting", function() {
-    it("formats to html with positive", function() {
+  describe("formatting", () => {
+    it("formats to html with positive", () => {
       const money = new Money(3000);
-      expect(money.render()).to.be(
-        '<span class="money positive">$30.00</span>'
-      );
+      expect(money.render()).toBe('<span class="money positive">$30.00</span>');
     });
 
-    it("formats to html with negative", function() {
+    it("formats to html with negative", () => {
       const money = new Money(-3000);
-      expect(money.render()).to.be(
-        '<span class="money negative">-$30.00</span>'
-      );
+      expect(money.render()).toBe('<span class="money negative">-$30.00</span>');
     });
 
-    it("formats to html with zero value", function() {
+    it("formats to html with zero value", () => {
       const money = new Money(0);
-      expect(money.render()).to.be('<span class="money zero">$0.00</span>');
+      expect(money.render()).toBe('<span class="money zero">$0.00</span>');
     });
 
-    it("formats to html without thousand serperator", function() {
+    it("formats to html without thousand serperator", () => {
       const money = new Money(100000);
-      expect(money.render()).to.be(
-        '<span class="money positive">$1000.00</span>'
-      );
+      expect(money.render()).toBe('<span class="money positive">$1000.00</span>');
     });
 
-    it("converts to string", function() {
+    it("converts to string", () => {
       const money = new Money(3000);
-      expect(money.toString()).to.be("30.00");
+      expect(money.toString()).toBe("30.00");
     });
 
-    it("does not have thousand seperators", function() {
+    it("does not have thousand seperators", () => {
       const money = new Money(884936);
-      expect(money.toString()).to.be("8849.36");
+      expect(money.toString()).toBe("8849.36");
     });
 
-    it("does not have thousand seperators for negative numbers", function() {
+    it("does not have thousand seperators for negative numbers", () => {
       const money = new Money(-884936);
-      expect(money.toString()).to.be("-8849.36");
+      expect(money.toString()).toBe("-8849.36");
     });
   });
 
-  describe("coercion", function() {
+  describe("coercion", () => {
     // Large is determined by when the "," seperator gets applied which is currently at 1000
-    it("has correct primitive value for large positive fractionals", function() {
+    it("has correct primitive value for large positive fractionals", () => {
       const money = new Money("$1000.50");
-      expect(Math.abs(money)).to.be(1000.50);
+      expect(Math.abs(money)).toBe(1000.50);
     });
 
-    it("has correct primitive value for large negative fractionals", function() {
+    it("has correct primitive value for large negative fractionals", () => {
       const money = new Money("$-1000.50");
-      expect(Math.abs(money)).to.be(1000.50);
+      expect(Math.abs(money)).toBe(1000.50);
     });
 
-    it("has correct primitive value for large whole numbers", function() {
+    it("has correct primitive value for large whole numbers", () => {
       const money = new Money("$1000");
-      expect(Math.abs(money)).to.be(1000);
+      expect(Math.abs(money)).toBe(1000);
     });
 
-    it("has correct primitive value for large negative whole numbers", function() {
-      const money = new Money("$-1000");
-      expect(Math.abs(money)).to.be(1000);
-    });
+    it(
+      "has correct primitive value for large negative whole numbers",
+      () => {
+        const money = new Money("$-1000");
+        expect(Math.abs(money)).toBe(1000);
+      }
+    );
 
-    it("has correct primitive value for small whole numbers", function() {
+    it("has correct primitive value for small whole numbers", () => {
       const money = new Money("$1");
-      expect(Math.abs(money)).to.be(1);
+      expect(Math.abs(money)).toBe(1);
     });
 
-    it("has correct primitive value for small fractional numbers", function() {
+    it("has correct primitive value for small fractional numbers", () => {
       const money = new Money("$1.5");
-      expect(Math.abs(money)).to.be(1.50);
+      expect(Math.abs(money)).toBe(1.50);
     });
   });
 
-  describe("rounding", function() {
-    describe("positive numbers", function() {
-      it("rounds down", function() {
+  describe("rounding", () => {
+    describe("positive numbers", () => {
+      it("rounds down", () => {
         const money = new Money(121);
-        expect(money.round().cents).to.be(120);
+        expect(money.round().cents).toBe(120);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(122);
-        expect(money.round().cents).to.be(120);
+        expect(money.round().cents).toBe(120);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(123);
-        expect(money.round().cents).to.be(125);
+        expect(money.round().cents).toBe(125);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(124);
-        expect(money.round().cents).to.be(125);
+        expect(money.round().cents).toBe(125);
       });
 
-      it("stays the same", function() {
+      it("stays the same", () => {
         const money = new Money(125);
-        expect(money.round().cents).to.be(125);
+        expect(money.round().cents).toBe(125);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(126);
-        expect(money.round().cents).to.be(125);
+        expect(money.round().cents).toBe(125);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(127);
-        expect(money.round().cents).to.be(125);
+        expect(money.round().cents).toBe(125);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(128);
-        expect(money.round().cents).to.be(130);
+        expect(money.round().cents).toBe(130);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(129);
-        expect(money.round().cents).to.be(130);
+        expect(money.round().cents).toBe(130);
       });
 
-      it("stays the same", function() {
+      it("stays the same", () => {
         const money = new Money(130);
-        expect(money.round().cents).to.be(130);
+        expect(money.round().cents).toBe(130);
       });
     });
 
-    describe("negative numbers", function() {
-      it("rounds up", function() {
+    describe("negative numbers", () => {
+      it("rounds up", () => {
         const money = new Money(-121);
-        expect(money.round().cents).to.be(-120);
+        expect(money.round().cents).toBe(-120);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(-122);
-        expect(money.round().cents).to.be(-120);
+        expect(money.round().cents).toBe(-120);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(-123);
-        expect(money.round().cents).to.be(-125);
+        expect(money.round().cents).toBe(-125);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(-124);
-        expect(money.round().cents).to.be(-125);
+        expect(money.round().cents).toBe(-125);
       });
 
-      it("stays the same", function() {
+      it("stays the same", () => {
         const money = new Money(-125);
-        expect(money.round().cents).to.be(-125);
+        expect(money.round().cents).toBe(-125);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(-126);
-        expect(money.round().cents).to.be(-125);
+        expect(money.round().cents).toBe(-125);
       });
 
-      it("rounds up", function() {
+      it("rounds up", () => {
         const money = new Money(-127);
-        expect(money.round().cents).to.be(-125);
+        expect(money.round().cents).toBe(-125);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(-128);
-        expect(money.round().cents).to.be(-130);
+        expect(money.round().cents).toBe(-130);
       });
 
-      it("rounds down", function() {
+      it("rounds down", () => {
         const money = new Money(-129);
-        expect(money.round().cents).to.be(-130);
+        expect(money.round().cents).toBe(-130);
       });
 
-      it("stays the same", function() {
+      it("stays the same", () => {
         const money = new Money(-130);
-        expect(money.round().cents).to.be(-130);
+        expect(money.round().cents).toBe(-130);
       });
     });
   });
