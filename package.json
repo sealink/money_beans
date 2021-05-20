@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/sealink/money_beans#readme",
   "dependencies": {
-    "currency.js": "2.0.3"
+    "currency.js": "2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
