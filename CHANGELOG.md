@@ -6,6 +6,7 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 ## Unreleased
 
 - [TT-9098] Convert from Mocha to Jest
+- [OPS-213] GHActions: add Node 16 and remove Node 10
 
 ## 1.6.0
 
