@@ -7,6 +7,7 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
 - [TT-9098] Convert from Mocha to Jest
 - [OPS-213] GHActions: add Node 16 and remove Node 10
+- [PLAT-89] Github: Dependabot AutoMerge
 
 ## 1.6.0
 
