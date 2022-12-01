@@ -1,3 +1,6 @@
+## 1.7.1
+ - Fix node engines to remove node 10 include node 16
+
 ## 1.7.0
 
 - [TT-9098] Convert from Mocha to Jest

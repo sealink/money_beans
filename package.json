@@ -1,6 +1,6 @@
 {
   "name": "@sealink/money_beans",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Create JS money objects from strings, integers or floats",
   "main": "./dist/money.js",
   "module": "./dist/money.esm.js",
