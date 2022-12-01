@@ -48,6 +48,6 @@
     "rollup-plugin-istanbul": "^4.0.0"
   },
   "engines": {
-    "node": "^10 || ^12 || ^14"
+    "node": "^12 || ^14 || ^16"
   }
 }
