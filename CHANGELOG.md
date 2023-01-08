@@ -1,4 +1,9 @@
+## Unreleased
+
+- [PLAT-1178] Add Node 18 support, drop Node 12 and 14
+
 ## 1.7.1
+
  - Fix node engines to remove node 10 include node 16
 
 ## 1.7.0
