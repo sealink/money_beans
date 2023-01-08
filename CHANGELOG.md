@@ -1,4 +1,4 @@
-## 1.8.1 Unreleased
+## 1.8.1
 
 - [PLAT-1203] Release with Node 18, no longer install npm@7 during build
 
