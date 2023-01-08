@@ -1,4 +1,4 @@
-## Unreleased
+## 1.8.0
 
 - [PLAT-1178] Add Node 18 support, drop Node 12 and 14
 
