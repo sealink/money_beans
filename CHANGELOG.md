@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 1.8.2
+
 - [TF-901] Fix can not find module issue
 
 ## 1.8.1
