@@ -3,6 +3,7 @@
   "version": "1.8.1",
   "description": "Create JS money objects from strings, integers or floats",
   "main": "./dist/money.js",
+  "module": "./dist/money.esm.js",
   "scripts": {
     "prebuild": "eslint src",
     "build": "rollup -c --environment BUILD:production",
